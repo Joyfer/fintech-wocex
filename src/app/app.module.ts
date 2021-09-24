@@ -9,11 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Angular Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 import { IndexComponent } from './pages/index/index.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent],
+  declarations: [AppComponent, IndexComponent, LoginFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,6 +25,9 @@ import { IndexComponent } from './pages/index/index.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
+    MatDividerModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
