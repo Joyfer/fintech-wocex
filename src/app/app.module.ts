@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Angular Material
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 import { IndexComponent } from './pages/index/index.component';
 
 @NgModule({
@@ -17,7 +19,8 @@ import { IndexComponent } from './pages/index/index.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
