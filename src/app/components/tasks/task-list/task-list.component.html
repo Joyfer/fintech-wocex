@@ -1,5 +1,11 @@
 <div class="tasks_list-task-layout">
   <div class="tasks_list-task-content">
-    <app-task-card *ngFor="let i of [1, 2, 3]"></app-task-card>
+    <app-task-card
+      *ngFor="let task of myTasks; let i = index"
+      [task]="task"
+      [index]="i"
+      (editTask)="editATask($event)"
+      (deleteTask)="deleteTask($event)"
+    ></app-task-card>
   </div>
 </div>

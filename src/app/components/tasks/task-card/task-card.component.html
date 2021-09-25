@@ -1,4 +1,16 @@
-<mat-card class="tasks_task-card">
-    <mat-card-title>Make rice</mat-card-title>
-    <mat-card-content>Hacer arroz con pollo osi</mat-card-content>
+<mat-card class="tasks_task-card mat-elevation-z0">
+  <div class="display-flex tasks_task-card-header">
+    <mat-card-title>{{ task.title }}</mat-card-title>
+    <span>{{ task.finished ? "Finished" : "Pending" }}</span>
+  </div>
+  <mat-card-content>{{ task.description }}</mat-card-content>
+  <mat-card-actions class="tasks_task-card-actions">
+    <button mat-raised-button color="primary" (click)="deleteTaskDone()">
+      DELETE
+    </button>
+    <button mat-raised-button color="primary">EDIT</button>
+    <button mat-raised-button color="success" (click)="editTaskDone()">
+      FINISH
+    </button>
+  </mat-card-actions>
 </mat-card>
