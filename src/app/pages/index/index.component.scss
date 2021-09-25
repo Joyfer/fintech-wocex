@@ -1,7 +1,19 @@
-.full-page {
+//Default display: flex overrided
+.mat-card-header {
+  display: block;
+  padding-top: 10px;
+}
+.login_ilustration {
   width: 100%;
-  height: 100vh;
+  height: 120px;
+  padding-bottom: 30px;
+}
+.login_form-footer-github-link {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+.login_github-link {
+  display: flex;
+  -webkit-text-stroke-width: medium;
 }

@@ -1,1 +1,6 @@
 @use '~@angular/material' as mat;
+
+// div margin disturbing layout
+::ng-deep .mat-card-header-text {
+  margin: 0px 0px !important;
+}

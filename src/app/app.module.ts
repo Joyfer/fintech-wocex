@@ -15,9 +15,12 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { IndexComponent } from './pages/index/index.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
+import { TaskListComponent } from './components/tasks/task-list/task-list.component';
+import { TaskCardComponent } from './components/tasks/task-card/task-card.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, LoginFormComponent],
+  declarations: [AppComponent, IndexComponent, LoginFormComponent, TasksComponent, TaskListComponent, TaskCardComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
