@@ -1,11 +1,28 @@
 .tasks_task-card {
-    margin: 1rem 0;
+  margin: 1rem 0;
+  line-break: anywhere;
+}
+.tasks_card-status{
+    line-break: auto;
+}
+.tasks_card-title {
+    line-height: 1.2;
+}
+@media (min-width: 600px) {
+  .tasks_task-card {
     padding: 2rem !important;
+  }
 }
 .tasks_task-card-actions {
-    display: flex;
-    justify-content: flex-end ;
+  display: flex;
+  justify-content: flex-end;
 }
-.tasks_task-card-header{
-    justify-content: space-between;
+.tasks_task-card-header {
+  justify-content: space-between;
+}
+.text-red {
+  color: red;
+}
+.text-green {
+  color: green;
 }

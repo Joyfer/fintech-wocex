@@ -1,16 +1,73 @@
-<mat-card class="tasks_task-card mat-elevation-z0">
-  <div class="display-flex tasks_task-card-header">
-    <mat-card-title>{{ task.title }}</mat-card-title>
-    <span>{{ task.finished ? "Finished" : "Pending" }}</span>
+<mat-card class="tasks_task-card mat-elevation-z1">
+  <div *ngIf="editableTask === false">
+    <div class="display-flex tasks_task-card-header">
+      <mat-card-title class="tasks_card-title">{{ task.title }}</mat-card-title>
+      <p class="tasks_card-status" [ngClass]="[task.finished === false ? 'text-red' : 'text-green']">{{
+        task.finished ? "Finished" : "Pending"
+      }}</p>
+    </div>
+    <mat-card-content>{{ task.description }}</mat-card-content>
+    <mat-card-actions class="tasks_task-card-actions">
+      <button mat-icon-button color="primary" (click)="deleteTaskDone()">
+        <mat-icon
+          ><svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+            /></svg
+        ></mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="startEditTask()"
+        *ngIf="task.finished === false"
+      >
+        <mat-icon
+          ><svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"
+            /></svg
+        ></mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="finishTaskDone()"
+        *ngIf="task.finished === false"
+      >
+        <mat-icon
+          ><svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"
+            /></svg
+        ></mat-icon>
+      </button>
+    </mat-card-actions>
   </div>
-  <mat-card-content>{{ task.description }}</mat-card-content>
-  <mat-card-actions class="tasks_task-card-actions">
-    <button mat-raised-button color="primary" (click)="deleteTaskDone()">
-      DELETE
-    </button>
-    <button mat-raised-button color="primary">EDIT</button>
-    <button mat-raised-button color="success" (click)="editTaskDone()">
-      FINISH
-    </button>
-  </mat-card-actions>
+  <!-- Editable layout -->
+  <div *ngIf="editableTask === true">
+    <div class="display-flex tasks_task-card-header">
+      <mat-form-field class="full-width" appearance="legacy">
+        <mat-label>Title</mat-label>
+        <input [(ngModel)]="newTitle" matInput type="text" autocomplete="off" />
+      </mat-form-field>
+    </div>
+    <mat-form-field class="full-width" appearance="legacy">
+      <mat-label>Description</mat-label>
+      <textarea
+        [(ngModel)]="newDescription"
+        matInput
+        type="text"
+        autocomplete="off"
+      ></textarea>
+    </mat-form-field>
+    <mat-card-actions class="tasks_task-card-actions">
+      <button mat-button color="primary" (click)="editTaskDone()">
+        FINISH
+      </button>
+    </mat-card-actions>
+  </div>
 </mat-card>

@@ -1,13 +1,25 @@
-<form class="login_form-layout">
+<div class="login_form-layout">
+  <div class="login_error-alert" *ngIf="showErrorAlert === true">
+    <p>Error, user or password invalid!</p>
+  </div>
   <mat-form-field class="full-width" appearance="legacy">
-    <mat-label>User</mat-label>
-    <input matInput type="text" autocomplete="off" />
+    <mat-label>E-mail</mat-label>
+    <input [(ngModel)]="email" matInput type="email" autocomplete="off" />
   </mat-form-field>
   <mat-form-field class="full-width" appearance="legacy">
     <mat-label>Password</mat-label>
-    <input matInput type="password" />
+    <input [(ngModel)]="password" matInput type="password" />
   </mat-form-field>
-  <button mat-raised-button color="primary" class="full-width mat-elevation-z8">
+  <button
+    (click)="login()"
+    mat-raised-button
+    color="primary"
+    [disabled]="email === '' || password === ''"
+    [ngClass]="
+      email === '' || password === '' ? 'mat-elevation-z0' : 'mat-elevation-z8'
+    "
+    class="full-width"
+  >
     Login
   </button>
-</form>
+</div>

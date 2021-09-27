@@ -1,0 +1,35 @@
+<div class="tasks_buttons">
+  <mat-form-field class="full-width" appearance="legacy">
+    <mat-label>Title</mat-label>
+    <input
+      matInput
+      [(ngModel)]="title"
+      type="text"
+      autocomplete="off"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="legacy">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      [(ngModel)]="description"
+      type="text"
+      required
+    ></textarea>
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="newTask()"
+    [disabled]="this.title === '' || this.description === ''"
+  >
+    <mat-icon class="tasks_buttons-add-icon"
+      ><svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z"
+        /></svg></mat-icon
+    >ADD NEW TASK
+  </button>
+</div>

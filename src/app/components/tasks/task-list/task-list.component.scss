@@ -1,11 +1,22 @@
 .tasks_list-task-layout {
-    width: 100%;
-    height: 400px;
-    overflow-y: auto;
-    margin: 2rem 0 0 0;
-    background-color: rgb(241, 241, 241);
-    border-radius: 6px;
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+  margin: 2rem 0 0 0;
+  background-color: rgb(241, 241, 241);
+  border-radius: 6px;
+}
+@media (min-width: 600px) {
+  .tasks_list-task-content {
+    padding: 0 2rem;
+  }
 }
 .tasks_list-task-content {
-    padding: 0 2rem;
+  padding: 0 10px;
+}
+.tasks_list-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

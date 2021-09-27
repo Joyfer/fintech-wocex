@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tasks } from 'src/app/model/tasks.model';
+import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
   selector: 'app-task-list',
@@ -7,22 +8,20 @@ import { Tasks } from 'src/app/model/tasks.model';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
-  constructor() {}
+  constructor(private TaskService: TasksService) {
+    this.myTasks = TaskService.myTasks;
+  }
   ngOnInit(): void {}
 
-  myTasks: Tasks[] = [
-    new Tasks('Arroz', 'Hacer arroz', false),
-    new Tasks('Con', 'Hacer con', false),
-    new Tasks('Leche', 'Hacer leche', false),
-  ];
+  myTasks: Tasks[];
 
-  editATask(value: Tasks): void {
-    let { title, description, finished, id } = value;
-    console.log(id);
+  editTask(data: Tasks): void {
+    this.TaskService.editTask(data);
   }
-
-  deleteTask(id: number): void {
-    let i = this.myTasks.findIndex((el) => el.id === id);
-    this.myTasks.splice(i, 1)
+  deleteTask(data: number): void {
+    this.TaskService.deleteTask(data);
+  }
+  finishTask(data: number): void {
+    this.TaskService.finishTask(data)
   }
 }

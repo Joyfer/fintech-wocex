@@ -1,11 +1,19 @@
 <div class="tasks_list-task-layout">
+  <div
+    class="tasks_list-empty full-width full-height"
+    *ngIf="myTasks.length === 0"
+  >
+    <h1 class="mat-display-3 mb-0">No tasks</h1>
+    <p class="mat-body">Add new tasks!</p>
+  </div>
   <div class="tasks_list-task-content">
     <app-task-card
       *ngFor="let task of myTasks; let i = index"
       [task]="task"
       [index]="i"
-      (editTask)="editATask($event)"
+      (editTask)="editTask($event)"
       (deleteTask)="deleteTask($event)"
+      (finishTask)="finishTask($event)"
     ></app-task-card>
   </div>
 </div>

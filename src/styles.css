@@ -9,6 +9,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 1rem 0;
 }
 .full-page {
   width: 100%;
@@ -25,11 +26,15 @@ a {
 a:hover {
   color: #673ab7;
 }
-
 .full-width {
   width: 100%;
 }
-
+.full-height {
+  height: 100%
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
 .text-center {
   text-align: center;
 }
@@ -41,6 +46,5 @@ a:hover {
   border-radius: 6px !important;
 }
 .mat-card-title {
-  -webkit-text-stroke-width: thin;
   font-size: xx-large;
 }
